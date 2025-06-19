@@ -1,42 +1,46 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Redirecting...</title>
 
-    <!-- GA4 基本追蹤碼 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-394J7CGYXK"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-394J7CGYXK');
-    </script>
-    
-    <!-- Track redirect event as conversion -->
-    <script>
+  <!-- GA4 基本追蹤碼 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-394J7CGYXK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-394J7CGYXK');
+  </script>
+
+  <!-- 追蹤事件 + 延遲跳轉 -->
+  <script>
+    // 等 GA 初始化後再觸發事件與跳轉
+    setTimeout(() => {
       gtag('event', 'go_click', {
         'event_category': 'redirect',
-        'event_label': 'momo618_Y25'
+        'event_label': 'momo618_Y25',
         'page_location': window.location.href
       });
-        
-    // 延遲 800 毫秒後跳轉 momo 商品頁
-    setTimeout(() => {
+
+      // 再等 300ms 確保事件傳送後跳轉
+      setTimeout(() => {
         window.location.href = "https://www.momoshop.com.tw/goods/GoodsDetail.jsp?i_code=13883377";
-    }, 800);
-    </script>
-    
-    <style>
-        body {
-            font-family: sans-serif;
-            text-align: center;
-            padding-top: 80px;
-        }
-    </style>
+      }, 300);
+
+    }, 200); // 等 GA 初始化後觸發
+  </script>
+
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding-top: 80px;
+    }
+  </style>
 </head>
 <body>
-    <p>正在前往 momo 商品頁...</p>
+  <p>正在前往 momo 商品頁...</p>
 </body>
 </html>
