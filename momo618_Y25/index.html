@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0.5;url=https://www.momoshop.com.tw/goods/GoodsDetail.jsp?i_code=13883377">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting...</title>
+
+    <!-- GA4 基本追蹤碼 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-394J7CGYXK"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -12,13 +13,21 @@
       gtag('js', new Date());
       gtag('config', 'G-394J7CGYXK');
     </script>
+    
     <!-- Track redirect event as conversion -->
     <script>
       gtag('event', 'go_click', {
         'event_category': 'redirect',
         'event_label': 'momo618_Y25'
+        'page_location': window.location.href
       });
+        
+    // 延遲 800 毫秒後跳轉 momo 商品頁
+    setTimeout(() => {
+        window.location.href = "https://www.momoshop.com.tw/goods/GoodsDetail.jsp?i_code=13883377";
+    }, 800);
     </script>
+    
     <style>
         body {
             font-family: sans-serif;
@@ -28,6 +37,6 @@
     </style>
 </head>
 <body>
-    <p>正在前往 https://www.momoshop.com.tw/...</p>
+    <p>正在前往 momo 商品頁...</p>
 </body>
 </html>
